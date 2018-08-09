@@ -2,7 +2,12 @@ import axios from 'axios';
 
 const axiosDaoInstance = axios.create({
     //baseURL:'https://reactburger-54381.firebaseio.com/'
-    baseURL:'http://localhost:4343/'
+    baseURL:'http://localhost:4343/',
+    timeout: 5000,
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json; charset=utf-8',
+    },
 });
 
 export default axiosDaoInstance;

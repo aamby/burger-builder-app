@@ -34,17 +34,11 @@ class BurgerBuilder extends Component {
       pwd:'roy'
     };
 
-    let config = {
-      headers: {
-            'Content-Type': 'application/json'
-        }
-    };
-    
-    axios.post('api/login', {login: authData}, config)
+    axios.post('api/login', {login: authData})
     .then(response =>{
-      const sessionToken = response.data.sessionToken;
-
-      config = {headers: {
+      const sessionToken = response.headers.authorization;
+      console.log(sessionToken);
+      const config = {headers: {
         'Content-Type': 'application/json',
         'Authorization': sessionToken
         }};
