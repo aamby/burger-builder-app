@@ -36,8 +36,9 @@ class BurgerBuilder extends Component {
 
     axios.post('api/login', {login: authData})
     .then(response =>{
+      //console.log(response.headers);
+      //console.log(sessionToken);
       const sessionToken = response.headers.authorization;
-      console.log(sessionToken);
       const config = {headers: {
         'Content-Type': 'application/json',
         'Authorization': sessionToken
